@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1090890719396",
+    "firebase_url": "https://cloudfilemanager-a2a4f.firebaseio.com",
+    "project_id": "cloudfilemanager-a2a4f",
+    "storage_bucket": "cloudfilemanager-a2a4f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090890719396:android:d0777150d75fcb6ec58631",
+        "android_client_info": {
+          "package_name": "com.example.cloudfilemanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090890719396-k8c8tketurebkc3eh0e6absmfbseb80u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLdHvJ6vtB9YBqpBKNBWiOvtrZjDE8ppE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090890719396-k8c8tketurebkc3eh0e6absmfbseb80u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
