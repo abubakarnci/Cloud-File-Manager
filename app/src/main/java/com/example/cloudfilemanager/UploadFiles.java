@@ -4,6 +4,8 @@ import com.google.firebase.database.Exclude;
 
 public class UploadFiles {
 
+
+    //variables using to store info of files
     private String mName;
     private String mFileUrl;
     private String mKey;

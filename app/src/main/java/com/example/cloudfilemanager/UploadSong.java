@@ -2,6 +2,7 @@ package com.example.cloudfilemanager;
 
 import com.google.firebase.database.Exclude;
 
+//variables using to store info of songs
 public class UploadSong {
     private String name;
     private String songUrl;

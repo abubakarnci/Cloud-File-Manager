@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordId=findViewById(R.id.passwordId);
         btnSignIn=findViewById(R.id.btnSignIn);
         tvSignUp=findViewById(R.id.tvSignUp);
+        //setting up firebase connection and checking credentials
         mAuthStateListener= new FirebaseAuth.AuthStateListener() {
 
 
@@ -42,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
                 if(mFirebaseUser != null){
+                    //successfully logged in and move to home screen
                     Toast.makeText(LoginActivity.this,"You are logged in", Toast.LENGTH_SHORT).show();
                     Intent i=new Intent(LoginActivity.this, HomeActivity.class);
                     startActivity(i);
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+        //if user left any textfield empty
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 String pwd=passwordId.getText().toString();
                 if(email.isEmpty()){
                     emailId.setError("Please Enter Email id");
+                    //focusing on empty textfield
                     emailId.requestFocus();
                 }
                 else if(pwd.isEmpty()){
@@ -68,6 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"Fields are Empty",Toast.LENGTH_SHORT).show();
 
                 }
+                //if some error occur or wrong credentials
                 else if(!(email.isEmpty() && pwd.isEmpty())){
                     mFirebaseAuth.signInWithEmailAndPassword(email,pwd).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -98,6 +103,7 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    //calling firebase authentication method
     @Override
     protected void onStart() {
         super.onStart();

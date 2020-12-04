@@ -66,10 +66,12 @@ public class SongActivity extends AppCompatActivity {
         textView=findViewById(R.id.textView);
         progressBar=findViewById(R.id.progressBar);
 
+        //setting up path for images in firebase storage and database
         mStorageRef= FirebaseStorage.getInstance().getReference("Songs");
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("Songs");
 
 
+        // Button click listeners for choosing, uploading, display uploaded songs
         choose_song.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +79,7 @@ public class SongActivity extends AppCompatActivity {
             }
         });
 
+        //status of uploading
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,6 +102,7 @@ public class SongActivity extends AppCompatActivity {
 
     }
 
+    //accessing audio from the phone internal storage through file chooser
     private void openFileChooser(){
         Intent intent= new Intent();
         intent.setType("audio/*");
@@ -108,6 +112,7 @@ public class SongActivity extends AppCompatActivity {
 
     }
 
+    //display the info of song
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -134,6 +139,7 @@ public class SongActivity extends AppCompatActivity {
             }
         }
 
+        //doing pathing
         if(result==null){
             result=uri.getPath();
             int cut=result.lastIndexOf('/');
@@ -151,6 +157,7 @@ public class SongActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    //uploading it to firebase
     private void uploadFile(){
         if(mSongUri!=null){
             String durationTxt;
@@ -216,6 +223,7 @@ public class SongActivity extends AppCompatActivity {
         }
     }
 
+    //getting the duration of a song
     private String getDurationFromMilli(int durationInMills) {
         Date date=new Date(durationInMills);
         SimpleDateFormat simple=new SimpleDateFormat("mm:ss", Locale.getDefault());

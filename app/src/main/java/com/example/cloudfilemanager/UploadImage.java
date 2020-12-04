@@ -2,6 +2,7 @@ package com.example.cloudfilemanager;
 
 import com.google.firebase.database.Exclude;
 
+ //variables using to store info of images
 public class UploadImage {
     private String mName;
     private String mImageUrl;

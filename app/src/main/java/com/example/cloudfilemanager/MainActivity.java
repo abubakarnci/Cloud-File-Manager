@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //setting up firebase connection
         mFirebaseAuth=FirebaseAuth.getInstance();
         emailId=findViewById(R.id.emailId);
         passwordId=findViewById(R.id.passwordId);
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                 String pwd=passwordId.getText().toString();
                 String name1=name.getText().toString();
                 String cPwd=cPassword.getText().toString();
+                    //if user left any textfield empty
+                    //focusing on empty textfield
                 if(email.isEmpty()){
                     emailId.setError("Please Enter Email id");
                     emailId.requestFocus();
@@ -76,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                Toast.makeText(MainActivity.this,"SignUp Unsuccessful, Please Try Again",Toast.LENGTH_SHORT).show();
 
                            }
+                           //successful sign up
                            else{
                                startActivity(new Intent(MainActivity.this,HomeActivity.class));
                            }

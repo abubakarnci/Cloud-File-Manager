@@ -88,6 +88,7 @@ public class SongActivity2 extends AppCompatActivity implements SongsAdapter.onI
         databaseReference.removeEventListener(valueEventListener);
     }
 
+    //media player to listen the uploaded songs
     public void playSong(List<UploadSong> arrayListSongs, int adapterPosition) throws IOException {
         UploadSong uploadSong=arrayListSongs.get(adapterPosition);
         if(mediaPlayer != null){
