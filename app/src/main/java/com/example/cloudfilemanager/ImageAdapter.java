@@ -30,6 +30,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     @NonNull
     @Override
+    //image view holder for displaying
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_item, parent, false);
         return new ImageViewHolder(v);
@@ -40,8 +41,9 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
         UploadImage uploadCurrent = mUploads.get(position);
         holder.textViewName.setText(uploadCurrent.getName());
-       // Glide.with(mContext).load(mUploads.get(position).getImageUrl()).into(holder.imageView);
+       Glide.with(mContext).load(mUploads.get(position).getImageUrl()).into(holder.imageView);
 
+       //setting up image size and resolution through picasso
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher1)
@@ -51,11 +53,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
 
     }
 
+    //display the position of selected image in whole array
     @Override
     public int getItemCount() {
         return mUploads.size();
     }
 
+    //image options on RecyclerView
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
 
 
@@ -82,6 +86,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             }
         }
 
+        //position options
         @Override
         public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
             menu.setHeaderTitle("Select Action");
@@ -95,6 +100,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
             rotate.setOnMenuItemClickListener(this);
         }
 
+        //when user clicks on any option
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if(mListener != null){

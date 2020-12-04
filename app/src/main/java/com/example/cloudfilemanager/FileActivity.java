@@ -32,6 +32,7 @@ import com.squareup.picasso.Picasso;
 
 public class FileActivity extends AppCompatActivity {
 
+    //Declaring variables, buttons etc
     private static final int PICKFILE=1;
     private Button choose_file;
     private Button upload;
@@ -55,6 +56,7 @@ public class FileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file);
 
+        //initializing
         choose_file=findViewById(R.id.choose_file);
         upload=findViewById(R.id.upload);
         showUploads=findViewById(R.id.showUploads);
@@ -62,10 +64,12 @@ public class FileActivity extends AppCompatActivity {
         imageView=findViewById(R.id.imageView);
         progressBar=findViewById(R.id.progressBar);
 
+        //settingup path for files in firebase storage and database
         mStorageRef= FirebaseStorage.getInstance().getReference("Files");
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("Files");
 
 
+        // Button click listeners for choosing, uploading, display uploaded files
         choose_file.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,6 +97,7 @@ public class FileActivity extends AppCompatActivity {
             }
         });
     }
+    //accessing zip files from the phone internal storage through file chooser
     private void openFileChooser(){
         Intent intent= new Intent();
         intent.setType("application/*");
@@ -101,6 +106,7 @@ public class FileActivity extends AppCompatActivity {
     }
 
 
+    //getting its Uri path reference for accessing it
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -110,14 +116,17 @@ public class FileActivity extends AppCompatActivity {
             }
     }
 
+    // storing the extension of file
     private String getFileExtension(Uri uri){
         ContentResolver cR= getContentResolver();
         MimeTypeMap mime= MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    //here uploading the selected file to the cloud
     private void uploadFiles(){
         if(mFileUri!=null){
+            //storage ref path
             StorageReference fileReference =mStorageRef.child(System.currentTimeMillis() +"." +getFileExtension(mFileUri));
             mUploadTask=fileReference.putFile(mFileUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -130,9 +139,8 @@ public class FileActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     final String downloadUrl = uri.toString();
-                                    // complete the rest of your code
 
-
+                                    // progress bar to display the uploading status
                                     Handler handler =new Handler();
                                     handler.postDelayed(new Runnable() {
                                         @Override
@@ -140,6 +148,7 @@ public class FileActivity extends AppCompatActivity {
                                             progressBar.setProgress(0);
                                         }
                                     }, 500);
+                                    //toast when uploading will be successful
                                     Toast.makeText(FileActivity.this,"Upload Successful", Toast.LENGTH_LONG).show();
                                     UploadFiles upload= new UploadFiles(fileName.getText().toString().trim(),
                                             downloadUrl);
@@ -153,7 +162,7 @@ public class FileActivity extends AppCompatActivity {
 
 
 
-
+//in case of failure
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
@@ -163,6 +172,7 @@ public class FileActivity extends AppCompatActivity {
                     }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(@NonNull UploadTask.TaskSnapshot tasksnapshot) {
+                            // progressbar bytes calculation
                             double progress =(100.0 * tasksnapshot.getBytesTransferred()/tasksnapshot.getTotalByteCount());
 
                             progressBar.setProgress((int) progress);
@@ -174,6 +184,7 @@ public class FileActivity extends AppCompatActivity {
         }
     }
 
+    //moving to next activity
     private void openFileActivity(){
         Intent intent=new Intent(this, FileActivity2.class);
         startActivity(intent);

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Cloud-Dateimanager</string>
+    <string name="intro">Cloud-Dateimanager</string>
+    <string name="tv1">Anmelden</string>
+    <string name="tv2">Sie haben bereits ein Konto? Hier anmelden</string>
+    <string name="b1">Anmelden</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="passw">Passwort</string>
+    <string name="cPassw">Kennwort bestätigen</string>
+
+
+
+    <string name="intro2">Cloud-Dateimanager</string>
+    <string name="login">Einloggen</string>
+    <string name="signin">Einloggen</string>
+    <string name="notReg">Nicht registriert? Hier anmelden</string>
+    <string name="ema">Email</string>
+    <string name="pass">Passwort</string>
+
+
+
+    <string name="intro3">Cloud-Dateimanager</string>
+    <string name="select">Wähle eins</string>
+    <string name="pic">Bilder</string>
+    <string name="so">Lieder</string>
+    <string name="documents">Unterlagen</string>
+    <string name="logout">Ausloggen</string>
+
+
+
+</resources>

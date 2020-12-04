@@ -19,6 +19,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FilesAdapter
 
     private FilesAdapter.onItemClickListener mListener;
 
+    //adapter for onclick options
     Context context;
     ArrayList<UploadFiles> arrayListFiles;
     public FilesAdapter(Context context, ArrayList<UploadFiles> arrayListFiles) {
@@ -41,6 +42,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FilesAdapter
         holder.titleTxt.setText(uploadFile.getmName());
 
     }
+    //display the position of file in whole array
     @Override
     public int getItemCount()
     {
@@ -73,6 +75,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FilesAdapter
         }
 
 
+        //position options
         @Override
         public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
             menu.setHeaderTitle("Select Action");
@@ -84,6 +87,7 @@ public class FilesAdapter extends RecyclerView.Adapter<FilesAdapter.FilesAdapter
             download.setOnMenuItemClickListener(this);
         }
 
+        //when user clicks on any option
         @Override
         public boolean onMenuItemClick(MenuItem item) {
             if(mListener != null){

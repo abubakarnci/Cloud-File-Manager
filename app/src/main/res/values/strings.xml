@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Cloud File Manager</string>
+    <string name="intro">Cloud File Manager</string>
+    <string name="tv1">SignUp</string>
+    <string name="tv2">Already have an account? Sign in here</string>
+    <string name="b1">Sign Up</string>
+    <string name="intro2">Cloud File Manager</string>
+    <string name="login">Login</string>
+    <string name="signin">Sign In</string>
+    <string name="notReg">Not registered? Sign Up here</string>
+    <string name="intro3">Cloud File Manager</string>
+    <string name="select">Select One</string>
+    <string name="pic">Pictures</string>
+    <string name="so">Songs</string>
+    <string name="documents">Documents</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="passw">Password</string>
+    <string name="cPassw">Confirm Password</string>
+    <string name="ema">Email</string>
+    <string name="pass">Password</string>
+
+
 </resources>

@@ -47,6 +47,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public class ImageActivity extends AppCompatActivity {
+    //Declaring variables, buttons etc
     private static final int PICKIMAGE=1;
     private Button choose_image;
     private Button upload;
@@ -83,10 +84,12 @@ public class ImageActivity extends AppCompatActivity {
             }
         });
 
+        //setting up path for images in firebase storage and database
         mStorageRef= FirebaseStorage.getInstance().getReference("Images");
         mDatabaseRef= FirebaseDatabase.getInstance().getReference("Images");
 
 
+        // Button click listeners for choosing, uploading, display uploaded files
         choose_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,6 +119,7 @@ public class ImageActivity extends AppCompatActivity {
 
     }
 
+    //taking permission and capturing picture through camera
     private void takePicture() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST_CAMERA);
@@ -131,6 +135,7 @@ public class ImageActivity extends AppCompatActivity {
         }
     }
 
+    //accessing pictures from the phone internal storage through file chooser
     private void openFileChooser(){
         Intent intent= new Intent();
         intent.setType("image/*");
@@ -140,14 +145,19 @@ public class ImageActivity extends AppCompatActivity {
 
     }
 
+    //selected image will display on image view before uploading
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+        if (requestCode == PICKIMAGE && resultCode == RESULT_OK && data !=null && data.getData()!=null) {
             mImageUri=data.getData();
-            Bundle extras = data.getExtras();
+
+            //picasso for displaying pictures
+            Picasso.with(this).load(mImageUri).into(imageView);
+
+            /*Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
+            imageView.setImageBitmap(imageBitmap);*/
 
 
             /*BitmapDrawable drawable = (BitmapDrawable) imageView.getDrawable();
@@ -177,25 +187,31 @@ public class ImageActivity extends AppCompatActivity {
 
         }
 
-        else if(requestCode== PICKIMAGE && resultCode== RESULT_OK && data!=null && data.getData()!=null){
-            mImageUri=data.getData();
-            Picasso.with(this).load(mImageUri).into(imageView);
+        //displaying captured pictures
+        else if(requestCode== REQUEST_IMAGE_CAPTURE && resultCode== RESULT_OK ){
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            imageView.setImageBitmap(imageBitmap);
         }
     }
 
+    // storing the extension of file
     private String getFileExtension(Uri uri){
         ContentResolver cR= getContentResolver();
         MimeTypeMap mime= MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
+    //here uploading the selected file to the cloud
     private void uploadFile(){
         if(mImageUri!=null){
+            //storage ref path
            StorageReference fileReference =mStorageRef.child(System.currentTimeMillis() +"." +getFileExtension(mImageUri));
             mUploadTask=fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // thats code works for older version of android studio. its not working anymore
                             //String downloadUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
 
                             final Task<Uri> firebaseUri = taskSnapshot.getStorage().getDownloadUrl();
@@ -251,6 +267,7 @@ public class ImageActivity extends AppCompatActivity {
         Intent intent=new Intent(this, ImageActivity2.class);
         startActivity(intent);
     }
+    //permission to access camera and taking pictures.
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_CAMERA: {

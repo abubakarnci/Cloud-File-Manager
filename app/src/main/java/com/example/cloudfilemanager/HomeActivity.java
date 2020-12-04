@@ -29,6 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         songButton=findViewById(R.id.songButton);
         fileButton=findViewById(R.id.documentsButton);
 
+        //setting listeners to move on to other activities
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //to logout
         btnlogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

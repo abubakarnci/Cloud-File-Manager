@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class FileActivity2 extends AppCompatActivity implements FilesAdapter.onItemClickListener {
 
-
+    //Declaring variables, RecyclerView etc
     private RecyclerView mRecyclerView;
     private FilesAdapter mAdapter;
     private ProgressBar mProgressCircle;
@@ -42,7 +42,7 @@ public class FileActivity2 extends AppCompatActivity implements FilesAdapter.onI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file2);
-
+//initializing
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -76,12 +76,14 @@ public class FileActivity2 extends AppCompatActivity implements FilesAdapter.onI
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                //in case database error
                 Toast.makeText(FileActivity2.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
     }
 
+    // activity options when click on some file
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "Normal click at position: " + position+ "\n Hold for more options", Toast.LENGTH_SHORT).show();
@@ -94,6 +96,7 @@ public class FileActivity2 extends AppCompatActivity implements FilesAdapter.onI
 
     }
 
+    //to download it from cloud to internal storage
     public void onDownloadClick(int position){
         UploadFiles p=mUploads.get(position);
         Intent i=new Intent(Intent.ACTION_VIEW);
@@ -101,6 +104,7 @@ public class FileActivity2 extends AppCompatActivity implements FilesAdapter.onI
         i.setData(Uri.parse(p.getmFileUrl()));
         startActivity(i);
     }
+    //to delete it from cloud
     @Override
     public void onDeleteClick(int position) {
 

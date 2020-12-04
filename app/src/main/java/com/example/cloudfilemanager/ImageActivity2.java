@@ -30,6 +30,7 @@ import java.util.ArrayList;
 
 public class ImageActivity2 extends AppCompatActivity implements ImageAdapter.onItemClickListener {
 
+    //Declaring variables, RecyclerView etc
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
     private ProgressBar mProgressCircle;
@@ -46,6 +47,7 @@ public class ImageActivity2 extends AppCompatActivity implements ImageAdapter.on
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image2);
 
+        //initializing
         mRecyclerView = findViewById(R.id.recycler_view);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -62,6 +64,8 @@ public class ImageActivity2 extends AppCompatActivity implements ImageAdapter.on
 
        mDBListener= mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
+
+            //setting properties of image
             public void onDataChange( DataSnapshot dataSnapshot) {
 
                 mUploads.clear();
@@ -85,6 +89,7 @@ public class ImageActivity2 extends AppCompatActivity implements ImageAdapter.on
         });
     }
 
+    // activity options when click on some image
     @Override
     public void onItemClick(int position) {
         Toast.makeText(this, "Normal click at position: " + position+ "\n Hold for more options", Toast.LENGTH_SHORT).show();
