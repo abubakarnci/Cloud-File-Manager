@@ -23,7 +23,7 @@
         android:layout_marginBottom="687dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Choose Image"
+        android:text="@string/cImage"
         android:textColor="@android:color/white" />
 
     <Button
@@ -42,7 +42,7 @@
         android:layout_marginBottom="21dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Camera"
+        android:text="@string/camBtn"
         android:textColor="@android:color/white" />
 
     <Button
@@ -63,7 +63,7 @@
         android:layout_marginBottom="21dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Upload"
+        android:text="@string/uImage"
         android:textColor="@android:color/white" />
 
     <Button
@@ -78,7 +78,7 @@
         android:layout_marginBottom="21dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Show Uploads"
+        android:text="@string/sUpBtn"
         android:textColor="@android:color/white" />
 
     <EditText
@@ -97,7 +97,7 @@
         android:layout_marginBottom="670dp"
         android:layout_toEndOf="@+id/choose_image"
         android:layout_toRightOf="@+id/choose_image"
-        android:hint="Enter Image Name"
+        android:hint="@string/iTv"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
 

@@ -20,6 +20,24 @@
     <string name="cPassw">Confirm Password</string>
     <string name="ema">Email</string>
     <string name="pass">Password</string>
+    <string name="cF">Choose File</string>
+    <string name="uF">Upload</string>
+    <string name="sU">Show Uploads</string>
+    <string name="fileTv">Upload Files</string>
+    <string name="fTf">Enter File Name</string>
+    <string name="ffTv">Fetching Files</string>
+    <string name="cImage">Choose Image</string>
+    <string name="iTv">Enter Image Name</string>
+    <string name="uImage">Upload</string>
+    <string name="camBtn">Camera</string>
+    <string name="sUpBtn">Show Uploads</string>
+    <string name="fetPic">Fetching Pictures</string>
+    <string name="songTv">Upload Songs</string>
+    <string name="chSong">Choose Song</string>
+    <string name="soName">Enter Song Name</string>
+    <string name="upSong">Upload</string>
+    <string name="shSon">Show Uploads</string>
+    <string name="play">Tap To Play Music</string>
 
 
 </resources>

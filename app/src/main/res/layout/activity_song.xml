@@ -23,7 +23,7 @@
         android:background="@color/colorPrimary"
 
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Choose Song"
+        android:text="@string/chSong"
         android:textColor="@android:color/white" />
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_marginBottom="66dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Upload"
+        android:text="@string/upSong"
         android:textColor="@android:color/white" />
 
     <Button
@@ -59,7 +59,7 @@
         android:layout_marginBottom="64dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Show Uploads"
+        android:text="@string/shSon"
         android:textColor="@android:color/white" />
 
     <EditText
@@ -78,7 +78,7 @@
         android:layout_marginBottom="520dp"
         android:layout_toEndOf="@+id/choose_song"
         android:layout_toRightOf="@+id/choose_song"
-        android:hint="Enter Song Name"
+        android:hint="@string/soName"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
 
@@ -126,7 +126,7 @@
         android:layout_marginRight="86dp"
         android:layout_marginBottom="462dp"
         android:fontFamily="cursive"
-        android:text="Upload Songs"
+        android:text="@string/songTv"
         android:textColor="#FFFFFF"
         android:textSize="45dp"
         android:textStyle="bold" />

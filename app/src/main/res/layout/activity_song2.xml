@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="cursive"
-        android:text="Tap To Play Music"
+        android:text="@string/play"
         android:textColor="#FFFFFF"
         android:textSize="45dp"
         android:textStyle="bold"

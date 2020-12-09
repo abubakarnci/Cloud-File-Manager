@@ -24,7 +24,7 @@
         android:background="@color/colorPrimary"
 
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Choose File"
+        android:text="@string/cF"
         android:textColor="@android:color/white" />
 
     <Button
@@ -45,7 +45,7 @@
         android:layout_marginBottom="66dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Upload"
+        android:text="@string/uF"
         android:textColor="@android:color/white" />
 
     <Button
@@ -60,7 +60,7 @@
         android:layout_marginBottom="64dp"
         android:background="@color/colorPrimary"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Show Uploads"
+        android:text="@string/sU"
         android:textColor="@android:color/white" />
 
     <EditText
@@ -79,7 +79,7 @@
         android:layout_marginBottom="520dp"
         android:layout_toEndOf="@+id/choose_song"
         android:layout_toRightOf="@+id/choose_song"
-        android:hint="Enter File Name"
+        android:hint="@string/fTf"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF" />
 
@@ -127,7 +127,7 @@
         android:layout_marginRight="86dp"
         android:layout_marginBottom="462dp"
         android:fontFamily="cursive"
-        android:text="Upload Files"
+        android:text="@string/fileTv"
         android:textColor="#FFFFFF"
         android:textSize="45dp"
         android:textStyle="bold" />

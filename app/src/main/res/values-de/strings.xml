@@ -28,5 +28,25 @@
     <string name="logout">Ausloggen</string>
 
 
+    <string name="cF">Datei wählen</string>
+    <string name="uF">Hochladen</string>
+    <string name="sU">Uploads anzeigen</string>
+    <string name="fileTv">Daten hochladen</string>
+    <string name="fTf">Geben Sie den Dateinamen ein</string>
+    <string name="ffTv">Dateien abrufen</string>
+
+    <string name="cImage">Wählen Sie Bild</string>
+    <string name="iTv">Geben Sie den Bildnamen ein</string>
+    <string name="uImage">Hochladen</string>
+    <string name="camBtn">Kamera</string>
+    <string name="sUpBtn">Uploads anzeigen</string>
+    <string name="fetPic">Bilder holen</string>
+    <string name="songTv">Songs hochladen</string>
+    <string name="chSong">Wählen Sie Song</string>
+    <string name="soName">Geben Sie den Songnamen ein</string>
+    <string name="upSong">Hochladen</string>
+    <string name="shSon">Uploads anzeigen</string>
+    <string name="play">Tippen Sie auf, um Musik abzuspielen</string>
+
 
 </resources>
